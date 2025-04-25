@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Incident } from "../data/mockIncidents";
 import { motion } from "framer-motion";
 
+// Props for receiving the addIncident callback
 type Props = {
   addIncident: (incident: Incident) => void;
 };
@@ -13,17 +14,21 @@ const IncidentForm = ({ addIncident }: Props) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    // To ensure fields are not empty
     if (!title || !description || !severity) return;
 
     const newIncident: Incident = {
-      id: Date.now(),
+      id: Date.now(), // Generate unique ID based on timestamp
       title,
       description,
       severity: severity as "Low" | "Medium" | "High",
-      reported_at: new Date().toISOString(),
+      reported_at: new Date().toISOString(), // Current date and time
     };
 
-    addIncident(newIncident);
+    addIncident(newIncident);  //Sends data to parent components
+
+    // To reset the form fields
     setTitle("");
     setDescription("");
     setSeverity("");

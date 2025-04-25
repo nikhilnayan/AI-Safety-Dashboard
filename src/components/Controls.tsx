@@ -20,7 +20,7 @@ const Controls = ({ severity, setSeverity, sortOrder, setSortOrder }: Props) => 
         <Filter className="w-5 h-5 text-blue-500" />
         <select
           value={severity}
-          onChange={(e) => setSeverity(e.target.value)}
+          onChange={(e) => setSeverity(e.target.value)}                                             // To Filter the list by Severity 
           className="border border-gray-300 p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
         >
           <option value="All">All Severities</option>
@@ -38,7 +38,7 @@ const Controls = ({ severity, setSeverity, sortOrder, setSortOrder }: Props) => 
         )}
         <select
           value={sortOrder}
-          onChange={(e) => setSortOrder(e.target.value as "newest" | "oldest")}
+          onChange={(e) => setSortOrder(e.target.value as "newest" | "oldest")}                     // To Sort the list by Reported Date
           className="border border-gray-300 p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
         >
           <option value="newest">Newest First</option>

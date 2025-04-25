@@ -7,34 +7,36 @@ type Props = {
   incident: Incident;
 };
 
+
+// Severity-based styles and icons
 const severityStyles = {
-  Low: {
+  Low: {                       
     color: "text-green-600",
-    icon: <AlertCircle className="text-green-500 w-5 h-5" />,
+    icon: <AlertCircle className="text-green-500 w-5 h-5" />, // to create Icon for Low Severity
     border: "border-green-200",
   },
-  Medium: {
+  Medium: {                    
     color: "text-yellow-600",
-    icon: <AlertCircle className="text-yellow-500 w-5 h-5" />,
+    icon: <AlertCircle className="text-yellow-500 w-5 h-5" />, // to create Icon for Medium Severity
     border: "border-yellow-200",
   },
-  High: {
+  High: {                     
     color: "text-red-600",
-    icon: <AlertTriangle className="text-red-500 w-5 h-5" />,
+    icon: <AlertTriangle className="text-red-500 w-5 h-5" />,  // to create Icon for High Severity
     border: "border-red-200",
   },
 };
 
 const IncidentCard = ({ incident }: Props) => {
-  const [showDetails, setShowDetails] = useState(false);
-  const severity = severityStyles[incident.severity];
+  const [showDetails, setShowDetails] = useState(false);  // Toggle state for description visibility
+  const severity = severityStyles[incident.severity];     // Get severity-specific styling
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
-      className={`rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-400 border-x-8 ${severity.border} bg-white`}
+      className={`rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-400 border-x-8 ${severity.border} bg-white ${severity.color}`}
     >
       <div className="flex justify-between items-start">
         <div className="flex items-center gap-2">
@@ -51,7 +53,7 @@ const IncidentCard = ({ incident }: Props) => {
         </div>
 
         <button
-          onClick={() => setShowDetails(!showDetails)}
+          onClick={() => setShowDetails(!showDetails)}                                            //To show the details of the Incident
           className="text-sm text-blue-600 hover:text-blue-800 font-medium transition"
         >
           {showDetails ? "Hide Details" : "View Details"}

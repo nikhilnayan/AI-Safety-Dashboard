@@ -15,14 +15,6 @@ An interactive, filterable, and sortable dashboard to report and track AI safety
 
 ---
 
-## 🖼️ Demo Preview
-
-![App Screenshot](https://via.placeholder.com/800x400?text=AI+Safety+Dashboard+Preview)
-
-> Replace this image with a real screenshot or screen recording of your app.
-
----
-
 ## 🧱 Tech Stack
 
 | Tool             | Description                          |
